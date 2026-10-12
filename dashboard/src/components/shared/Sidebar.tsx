@@ -11,8 +11,7 @@ import {
   FileText,
   Fingerprint,
 } from "lucide-react";
-import { usePermission, useRoleDisplayName } from "../../hooks/usePermission";
-import useStore from "../../store/useStore";
+import { usePermission } from "../../hooks/usePermission";
 
 export default function Sidebar() {
   // const user = useStore((s) => s.user);
