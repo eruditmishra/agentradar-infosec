@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@keyframes mesh-drift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@layer base {
+  body {
+    @apply bg-bg-root text-text-primary font-body text-[13px] antialiased;
+    background-image: 
+      radial-gradient(at 0% 0%, #e8eeff 0, transparent 40%),
+      radial-gradient(at 100% 0%, #f5eeff 0, transparent 50%),
+      radial-gradient(at 100% 100%, #eefbff 0, transparent 40%),
+      radial-gradient(at 0% 100%, rgba(99,102,241,0.08) 0, transparent 50%);
+    background-size: 200% 200%;
+    animation: mesh-drift 20s ease-in-out infinite alternate;
+    line-height: 1.5;
+  }
+
+  button, a, [role="button"], [role="menuitem"], select {
+    @apply cursor-pointer;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #report-container, #report-container * {
+    visibility: visible;
+  }
+  #report-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  /* Ensure backgrounds like the radar/pie charts get printed */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+.sidebar-navigation {
+  /* overflow-y: auto; */
+  /* Syntax: scrollbar-color: <thumb-color> <track-color>; */
+  scrollbar-color: #fff transparent; 
+}
+

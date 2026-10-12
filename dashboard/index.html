@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link rel="icon" type="image/png" href="/bot.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgentRadar Dashboard</title>
+    <!--
+      Fix: Missing CSP Header. This SPA is built as static assets and is not
+      guaranteed to be served through the Express API (which already applies
+      helmet()'s default CSP) — the static host/CDN in front of it may not add
+      security headers of its own, so a restrictive policy is declared here as
+      a fallback. Update the allow-lists if new external origins are added.
+      Note: HSTS cannot be set via a meta tag (browsers ignore it there) — it
+      must be configured as a response header at the static hosting/CDN layer
+      that serves this file over HTTPS.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' ws: wss:; base-uri 'self'; object-src 'none'">
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
