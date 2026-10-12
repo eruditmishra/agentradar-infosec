@@ -15,8 +15,8 @@ import { usePermission, useRoleDisplayName } from "../../hooks/usePermission";
 import useStore from "../../store/useStore";
 
 export default function Sidebar() {
-  const user = useStore((s) => s.user);
-  const roleLabel = useRoleDisplayName();
+  // const user = useStore((s) => s.user);
+  // const roleLabel = useRoleDisplayName();
 
   // ── Permission checks ────────────────────────────────────────────────────
   const canViewDashboard = usePermission("dashboard", "view");
@@ -86,11 +86,11 @@ export default function Sidebar() {
             <NavLink
               to="/dashboard"
               className={({ isActive }) => navClass(isActive)}
-              >
+            >
               <Activity size={16} />
               Dashboard
             </NavLink>
-              </div>
+          </div>
         )}
 
         {/* Discovery */}
