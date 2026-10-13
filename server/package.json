@@ -16,7 +16,8 @@
     "migrate": "node-pg-migrate -m migrations",
     "migrate:up": "node-pg-migrate -m migrations up",
     "migrate:down": "node-pg-migrate -m migrations down",
-    "seed:admin": "tsx scripts/seed-admin.ts"
+    "seed:admin": "tsx scripts/seed-admin.ts",
+    "create:super-admin": "tsx scripts/create-super-admin.ts"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
